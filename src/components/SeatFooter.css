@@ -1,0 +1,77 @@
+.seat-footer {
+  margin-top: 24px;
+  padding: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Top stand selector */
+.stand-selector {
+   display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stand-selector button {
+    margin-left: 24px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.stand-selector button.active {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
+
+/* Middle info row */
+.seat-footer-middle {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.seat-info select {
+  margin-left: 6px;
+  padding: 4px 8px;
+}
+
+.seat-selected span {
+  margin-right: 6px;
+}
+
+.seat-price {
+  margin-left: auto;
+  font-size: 18px;
+  color: #f97316;
+}
+
+/* Action buttons */
+.seat-footer-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: #fbd5d5;
+  color: #dc2626;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-confirm {
+  flex: 1;
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}

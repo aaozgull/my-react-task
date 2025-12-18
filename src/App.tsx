@@ -4,6 +4,7 @@ import { seatBlocks } from "./data/seatLayouts";
 import type { Seat } from "./types/seat";
 import "./index.css";
 import { SeatHeader } from "./components/SeatHeader";
+import { SeatFooter } from "./components/SeatFooter";
 
 
 
@@ -17,6 +18,18 @@ export default function App() {
   const [seatType, setSeatType] = useState<
   "vip" | "family" | "standard"
 >("standard");
+
+const [stand, setStand] = useState<
+  "centenary" | "anfield" | "main" | "kop"
+>("centenary");
+
+const selectedSeats = blocks
+  .flat()
+  .filter(seat => seat.status === "selected")
+  .map(seat => `L${seat.row}`);
+
+const totalPrice = selectedSeats.length * 15;
+
 
   const handleSeatClick = (id: string) => {
     setBlocks(prev =>
@@ -58,6 +71,18 @@ export default function App() {
         showAvailable={showAvailable}
         showSelected={showSelected}
       />
+            
+        <SeatFooter
+          stand={stand}
+          onStandChange={setStand}
+          seatCount={selectedSeats.length}
+          onSeatCountChange={() => {}}
+          selectedSeats={selectedSeats}
+          totalPrice={totalPrice}
+          onCancel={() => console.log("cancel")}
+          onConfirm={() => console.log("confirm")}
+        />
+
     </div>
   );
 }
