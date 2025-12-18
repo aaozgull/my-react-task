@@ -50,7 +50,6 @@
 
 /* ===== SEAT STYLES ===== */
 
-
 /* ===== SEAT BASE ===== */
 .seat {
   width: 20px;
@@ -83,7 +82,7 @@
 .seat-block {
   display: grid;
   grid-template-columns: repeat(6, 28px);
-  gap: 8px;
+  gap: 6px;
 }
 
 .hall-grid {

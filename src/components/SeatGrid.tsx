@@ -6,18 +6,27 @@ type Props = {
   blocks: Seat[][];
   onSeatClick: (id: string) => void;
   showBooked: boolean;
-  showSelected: boolean;
   showAvailable:boolean;
+  showSelected: boolean;
 };
+
 
 export const SeatGrid = ({
   blocks,
   onSeatClick,
   showBooked,
+  showAvailable,
   showSelected,
-  showAvailable
 }: Props) => {
-    console.log("blocks", blocks);
+    //console.log("blocks", blocks);
+     blocks.forEach((block, bi) => {
+    block.forEach(seat => {
+      if (seat.status === "selected") {
+        console.log("✅ SELECTED SEAT FOUND:", bi, seat);
+      }
+    });
+  });
+
 
   return (
     <div className="hall-grid">
@@ -28,8 +37,8 @@ export const SeatGrid = ({
           seats={blockSeats}
           onSeatClick={onSeatClick}
           showBooked={showBooked}
-          showSelected={showSelected}
           showAvailable ={showAvailable}
+          showSelected={showSelected}          
         />
       ))}
     </div>

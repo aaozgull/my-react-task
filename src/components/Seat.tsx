@@ -4,15 +4,15 @@ type Props = {
   seat: Seat;
   onClick: (id: string) => void;
   showBooked: boolean;
-  showSelected: boolean;
   showAvailable: boolean;
+  showSelected: boolean;
 };
-
 
 export const SeatItem = ({
   seat,
   onClick,
   showBooked,
+  //showAvailable,
   showSelected,
 }: Props) => {
   let className = "seat available"; // ✅ base seat ALWAYS visible
@@ -22,6 +22,7 @@ export const SeatItem = ({
     className = "seat booked";
   }
 
+   //console.log('seat.status' , seat.status)
   if (seat.status === "selected" && showSelected) {
     className = "seat selected";
   }

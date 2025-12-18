@@ -46,14 +46,6 @@ export default function App() {
           Booked
         </label>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={showSelected}
-            onChange={() => setShowSelected(v => !v)}
-          />
-          Selected
-        </label>
 
         <label>
           <input
@@ -63,14 +55,25 @@ export default function App() {
           />
           Available
         </label>
+
+
+        <label>
+          <input
+            type="checkbox"
+            checked={showSelected}
+            onChange={() => setShowSelected(v => !v)}
+          />
+          Selected
+        </label>
       </div>
 
       <SeatGrid
         blocks={blocks}
         onSeatClick={handleSeatClick}
         showBooked={showBooked}
-        showSelected={showSelected}
         showAvailable={showAvailable}
+        showSelected={showSelected}
+      
       />
 
     </div>

@@ -31,8 +31,8 @@ export const SeatBlock = ({
   seats,
   onSeatClick,
   showBooked,
+  showAvailable,
   showSelected,
-  showAvailable
 }: Props) => {
   const isLeftBlock = seats[0].id.includes("b0") || seats[0].id.includes("b4");
   const isRightBlock = seats[0].id.includes("b3") || seats[0].id.includes("b7");
@@ -59,8 +59,8 @@ export const SeatBlock = ({
             seat={seat}
             onClick={onSeatClick}
             showBooked={showBooked}
-            showSelected={showSelected}
             showAvailable={showAvailable}
+            showSelected={showSelected}
           />
         );
       })}
