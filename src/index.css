@@ -1,0 +1,104 @@
+/* Top bar layout */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* Legend container */
+.legend {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Each legend item */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+/* Color box */
+.legend-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Colors */
+.legend-box.booked {
+  background-color: #f97316; /* orange */
+}
+
+.legend-box.available {
+  background-color: #e5e7eb; /* grey */
+  border: 1px solid #d1d5db;
+}
+
+.legend-box.selected {
+  background-color: #22c55e; /* green */
+}
+
+/* Optional: checkbox spacing */
+.legend input {
+  margin-left: 4px;
+}
+
+/* ===== SEAT STYLES ===== */
+
+
+/* ===== SEAT BASE ===== */
+.seat {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+/* AVAILABLE (Grey) */
+.seat.available {
+  background-image: url("./assets/ch-grey.png");
+}
+
+/* BOOKED (Orange) */
+.seat.booked {
+  background-image: url("./assets/ch-orange.png");
+  cursor: not-allowed;
+}
+
+/* SELECTED (Green) */
+.seat.selected {
+  background-image: url("./assets/ch-green.png");
+}
+
+
+/* ===== BLOCK & GRID LAYOUT ===== */
+
+.seat-block {
+  display: grid;
+  grid-template-columns: repeat(6, 28px);
+  gap: 8px;
+}
+
+.hall-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto); /* 4 blocks per row */
+  gap: 32px;
+  justify-content: center;
+  margin-top: 24px;
+}
+.seat.available:hover {
+  background-color: #d1d5db;
+}
+
+.seat.space {
+  background: transparent;
+  pointer-events: none;
+}
+
