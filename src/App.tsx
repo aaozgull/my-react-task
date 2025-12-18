@@ -3,15 +3,20 @@ import { SeatGrid } from "./components/SeatGrid";
 import { seatBlocks } from "./data/seatLayouts";
 import type { Seat } from "./types/seat";
 import "./index.css";
+import { SeatHeader } from "./components/SeatHeader";
+
+
 
 export default function App() {
-  // seatBlocks already contains Seat[][]
   const [blocks, setBlocks] = useState<Seat[][]>(seatBlocks);
 
   const [showBooked, setShowBooked] = useState(true);
-  const [showSelected, setShowSelected] = useState(true);
   const [showAvailable, setShowAvailable] = useState(true);
+  const [showSelected, setShowSelected] = useState(true);
 
+  const [seatType, setSeatType] = useState<
+  "vip" | "family" | "standard"
+>("standard");
 
   const handleSeatClick = (id: string) => {
     setBlocks(prev =>
@@ -32,40 +37,19 @@ export default function App() {
   };
 
   return (
-    <div className="container">
-      <h2>Select Your Seats</h2>
+    <div className="seat-layout">
+      
+      <SeatHeader
+        showBooked={showBooked}
+        showAvailable={showAvailable}
+        showSelected={showSelected}
+        onToggleBooked={() => setShowBooked(v => !v)}
+        onToggleAvailable={() => setShowAvailable(v => !v)}
+        onToggleSelected={() => setShowSelected(v => !v)}
+        seatType={seatType}
+        onSeatTypeChange={setSeatType}
+      />
 
-      {/* Legend */}
-      <div className="legend">
-        <label>
-          <input
-            type="checkbox"
-            checked={showBooked}
-            onChange={() => setShowBooked(v => !v)}
-          />
-          Booked
-        </label>
-
-
-        <label>
-          <input
-            type="checkbox"
-            checked={showAvailable}
-            onChange={() => setShowAvailable(v => !v)}
-          />
-          Available
-        </label>
-
-
-        <label>
-          <input
-            type="checkbox"
-            checked={showSelected}
-            onChange={() => setShowSelected(v => !v)}
-          />
-          Selected
-        </label>
-      </div>
 
       <SeatGrid
         blocks={blocks}
@@ -73,9 +57,8 @@ export default function App() {
         showBooked={showBooked}
         showAvailable={showAvailable}
         showSelected={showSelected}
-      
       />
-
     </div>
   );
 }
+
